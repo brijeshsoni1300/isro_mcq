@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:isro_mcq/controllers/questions_controller.dart';
+import 'package:isro_mcq/controllers/quiz_controller.dart';
 
 import 'QuizScreen.dart';
 
@@ -14,6 +15,8 @@ class TopicScreen extends StatefulWidget {
 class _TopicScreenState extends State<TopicScreen> {
   String difficulty = "EASY";
   QuestionController quesionController = Get.put(QuestionController());
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,7 +81,17 @@ class _TopicScreenState extends State<TopicScreen> {
               ],
             ),
             GestureDetector(
-              onTap: (() {}),
+              onTap: (() {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => QuizScreen(
+                      topic: "TOPIC1",
+                      difficulty: difficulty,
+                    ),
+                  ),
+                );
+              }),
               child: Container(
                   height: 100,
                   width: 150,
@@ -86,7 +99,17 @@ class _TopicScreenState extends State<TopicScreen> {
                   child: Center(child: Text("TOPIC1"))),
             ),
             GestureDetector(
-              onTap: (() {}),
+              onTap: (() {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => QuizScreen(
+                      topic: "TOPIC2",
+                      difficulty: difficulty,
+                    ),
+                  ),
+                );
+              }),
               child: Container(
                   height: 100,
                   width: 150,
@@ -94,7 +117,17 @@ class _TopicScreenState extends State<TopicScreen> {
                   child: Center(child: Text("TOPIC2"))),
             ),
             GestureDetector(
-              onTap: (() {}),
+              onTap: (() {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => QuizScreen(
+                      topic: "TOPIC3",
+                      difficulty: difficulty,
+                    ),
+                  ),
+                );
+              }),
               child: Container(
                   height: 100,
                   width: 150,
@@ -106,9 +139,9 @@ class _TopicScreenState extends State<TopicScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => QuizScreen(topic: "TOPIC4", difficulty: difficulty),
-                    settings: RouteSettings(
-                      arguments: {"TOPIC4", difficulty},
+                    builder: (context) => QuizScreen(
+                      topic: "TOPIC4",
+                      difficulty: difficulty,
                     ),
                   ),
                 );
